@@ -1,5 +1,3 @@
-// IIFE
-// Immediately Invoke Function Expression
 (function () {
     var registerBtn = jQuery('#registerBtn');
     var usernameFld = $('#username');
@@ -26,6 +24,16 @@
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
+        }).then(registrationSuccessful, registrationFailed); 
+        // fetch is a-synchronized: thread is not blocked waiting for the AJAX call to finished, so the browser handles multi-threading work
     }
+    
+    function registrationSuccessful() {
+    	alert('!YAY!');
+    	window.location.href = '/profile.template.client.html';
+    }
+    
+    function registrationFailed() {
+    	alert('OOPS');
+    } 
 })();
