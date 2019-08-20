@@ -23,9 +23,10 @@
             body: userObjStr,
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            'credentials': 'include'
         }).then(registrationSuccessful, registrationFailed); 
-        // fetch is a-synchronized: thread is not blocked waiting for the AJAX call to finished, so the browser handles multi-threading work
+
     }
     
     function registrationSuccessful() {
