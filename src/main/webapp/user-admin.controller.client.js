@@ -48,9 +48,28 @@
 
             td = $('<td>');
             var deleteBtn = $('<button>DELETE</button>');
+            deleteBtn.click(deleteUser);
+            deleteBtn.attr('id', user.id);
+            deleteBtn.attr('username', user.username);
             td.append(deleteBtn);
             tr.append(td);
+
             tbody.append(tr);
         }
     }
+    
+    function deleteUser(event) {
+        var $button = $(event.currentTarget);
+        var id = $button.attr('id');
+        alert(`delete user ${$button.attr('username')} !`);
+        var url = "/api/user/" + id;
+        fetch(url, {
+            method: 'delete'
+        })
+            .then(function () {
+                findAllUsers()
+                    .then(renderUsers);
+            });
+    }
+
 })();

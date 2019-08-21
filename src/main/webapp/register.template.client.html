@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Client Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="styles.css"
+          rel="stylesheet">
 </head>
 <body>
-    <h1>Register</h1>
+    <div class="container-fluid">
+        <h1>Register</h1>
 
-    <div>
-        <label for="username">
-            Username
-        </label>
-        <input type="text"
-               placeholder="luzhang"
-               id="username"/>
+        <div>
+            <label for="username">
+                Username
+            </label>
+            <input type="text"
+                   class="form-control wbdv"
+                   placeholder="luzhang"
+                   id="username"/>
+        </div>
+
+        <div>
+            <label for="password">
+                Password
+            </label>
+            <input type="password"
+                   class="form-control wbdv"
+                   placeholder="1234567"
+                   id="password"/>
+        </div>
+
+        <div>
+            <label for="password2">
+                Validate Password
+            </label>
+            <input type="password"
+                   class="form-control wbdv"
+                   placeholder="1234567"
+                   id="password2"/>
+        </div>
+
+        <button id="registerBtn"
+                class="btn btn-primary">
+            Register
+        </button>
+
+        <a href="login.template.client.html">
+            Login
+        </a>
     </div>
-
-    <div>
-        <label for="password">
-            Password
-        </label>
-        <input type="password"
-               placeholder="1234567"
-               id="password"/>
-    </div>
-
-    <div>
-        <label for="password2">
-            Validate Password
-        </label>
-        <input type="password"
-               placeholder="1234567"
-               id="password2"/>
-    </div>
-
-    <button id="registerBtn">
-        Register
-    </button>
-
-    <a href="login.template.client.html">
-        Login
-    </a>
-
     <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
