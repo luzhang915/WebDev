@@ -1,21 +1,15 @@
 (function () {
+
+    var userServiceClient = new UserServiceClient();
+
     function init() {
-        findAllUsers()
+        userServiceClient
+            .findAllUsers()
             .then(renderUsers);
     }
     init();
     
-    function findAllUsers() {
-        var url = "/api/user";
-        return fetch(url)
-            .then(function (response) {
-                return response.json();
-            });
-    }
-    
     function renderUsers(users) {
-        console.log(users);
-
         var tbody = $('tbody');
         tbody.empty();
         for (var i=0; i<users.length; i++) {
@@ -62,12 +56,11 @@
         var $button = $(event.currentTarget);
         var id = $button.attr('id');
         alert(`delete user ${$button.attr('username')} !`);
-        var url = "/api/user/" + id;
-        fetch(url, {
-            method: 'delete'
-        })
+        userServiceClient
+            .deleteUser(id)
             .then(function () {
-                findAllUsers()
+                userServiceClient
+                    .findAllUsers()
                     .then(renderUsers);
             });
     }
